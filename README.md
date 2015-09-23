@@ -11,7 +11,7 @@ Download or clone the Allspeak.js repository
 git clone https://github.com/Schlipak/Allspeak.js.git
 ```
 
-In the `dist` folder, you will find the source and minified files. You can either use the jQuery or vanialla version as you like, both have the same functionnalities.
+In the `dist` folder, you will find the source and minified files. You can either use the jQuery or vanilla version as you like, both have the same functionnalities.
 
 In your HTML document, you should add an attribute to the elements you want to translate. The default attribute is `data-key`, but it can be configured to your liking.
 
