@@ -40,7 +40,7 @@ Along with a valid JSON translation file, the previous example will be translate
 
 *Note*: When using the jQuery version of Allspeak, wrap your code in `$(document).ready()`;
 
-## JSON File Definition
+## JSON file definition
 
 The JSON translation file structure is pretty simple and straight-forward. It lists all of your translation keys, and to each, associates one or more translation.
 
