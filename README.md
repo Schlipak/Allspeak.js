@@ -1,7 +1,7 @@
 Allspeak.js
 ===========
 
-Allspeak is a front-end JavaScript library that translates your websites and applications quickly and efficiently.
+Allspeak is a front-end JavaScript library that translates your websites and web applications quickly and efficiently.
 
 ## Installation
 
