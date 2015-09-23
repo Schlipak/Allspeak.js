@@ -6,7 +6,7 @@
 	 * @param {Object} args The arguments
 	 * @returns {ToolBox} this
 	 */
-	ToolBox = function(args) {
+	var ToolBox = function(args) {
 		/**
 		 * Storage functions encapsulation object
 		 * @public
@@ -40,7 +40,7 @@
 			 */
 			get: function(key) {
 				if (typeof key !== 'string') {
-					throw new Error('The storage key must be a string.');
+					throw new Error('The storage key must be a string. (Got "' + key + '")');
 				};
 
 				return localStorage[key];
@@ -199,11 +199,11 @@
 			};
 
 			if (this.raw) {
-				el.innerHTML(trans);
+				el.innerHTML = trans;
 			} else {
 				var escapedTrans = document.createElement('div');
 				escapedTrans.appendChild(document.createTextNode(trans));
-				el.innerHTML(escapedTrans.innerHTML);
+				el.innerHTML = escapedTrans.innerHTML;
 			};
 		};
 
@@ -270,7 +270,7 @@
 					var el = _els[i];
 					var _key = el.getAttribute(_this.keyAttrName);
 
-					if (typeof _key === 'undefined') { return; };
+					if (typeof _key === 'undefined' || _key === null) { continue; };
 
 					if (_this.debug) {
 						console.info('Translating from storage cache: ["' + _key + '", "' + locale + '"]');
