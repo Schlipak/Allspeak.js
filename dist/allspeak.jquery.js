@@ -220,7 +220,7 @@
 
 				updateElement.bind(_this)($(el), _trans);
 			});
-			$('html').attr('lang', args.locale);
+			args.scope.attr('lang', args.locale);
 		};
 
 		/**
@@ -232,7 +232,7 @@
 		this.trans = function(args) {
 			var locale,
 				domain = this.defaultDomain,
-				scope = $('body'),
+				scope = $('html'),
 				_this = this;
 
 			if (typeof args === 'string') {
@@ -240,13 +240,13 @@
 			} else {
 				locale = args.locale;
 				domain = args.domain || this.defaultDomain;
-				scope = args.scope || $('body');
+				scope = args.scope || $('html');
 			};
 
 			var _url = this.path + '/' + domain + '.json';
 
-			// Fail silently if the page is already translated
-			if ( $('html').attr('lang') === locale ) { return this; };
+			// Fail silently if the scope is already translated
+			if ( scope.attr('lang') === locale ) { return this; };
 
 			if (this.useCache) {
 				var _els = scope.find('*');
@@ -328,7 +328,7 @@
 
 					updateElement.bind(_this)($(el), _trans);
 				});
-				$('html').attr('lang', locale);
+				scope.attr('lang', locale);
 			} else {
 				getJsonData(_url, function(data) {
 					updateAll(_this,{

@@ -235,7 +235,7 @@
 				updateElement.bind(_this)(el, _trans);
 			};
 
-			document.documentElement.lang = args.locale;
+			args.scope.lang = args.locale;
 		};
 
 		/**
@@ -247,7 +247,7 @@
 		this.trans = function(args) {
 			var locale,
 				domain = this.defaultDomain,
-				scope = document.getElementsByTagName('body')[0],
+				scope = document.documentElement,
 				_this = this;
 
 			if (typeof args === 'string') {
@@ -255,13 +255,13 @@
 			} else {
 				locale = args.locale;
 				domain = args.domain || this.defaultDomain;
-				scope = args.scope || document.getElementsByTagName('body')[0];
+				scope = args.scope || document.documentElement;
 			};
 
 			var _url = this.path + '/' + domain + '.json';
 
 			// Fail silently if the page is already translated
-			if ( document.documentElement.lang === locale ) { return this; };
+			if ( scope.lang === locale ) { return this; };
 
 			if (this.useCache) {
 				var _els = scope.getElementsByTagName('*');
@@ -345,7 +345,7 @@
 
 					updateElement.bind(_this)(el, _trans);
 				};				
-				document.documentElement.lang = locale;
+				scope.lang = locale;
 			} else {
 				getJsonData(_url, function(data) {
 					updateAll(_this,{
