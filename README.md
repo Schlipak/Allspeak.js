@@ -57,7 +57,7 @@ The JSON translation file structure is pretty simple and straight-forward. It li
 }
 ```
 
-If your file does not follow this structure, Allspeak will either throw a *parseError* or warn you of a missing key or translation in the console. It's always a good thing to test your translation file with an JSON validator service such as JSONlint.
+If your file does not follow this structure, Allspeak will either throw a *parseError* or warn you of a missing key or translation in the console. It's always good to test your translation file with an JSON validator service such as JSONlint.
 
 ## Translation domains
 
@@ -78,7 +78,7 @@ The corresponding JSON files should be named according to their translation doma
 
 ## Settings
 
-Allspeak comes with built-in settings that let you tune its behaviour to better fit your needs. You can pass an object to the constructor to specify some of these settings.
+Allspeak comes with settings that let you tune its behaviour to better fit your needs. You can pass an object to the constructor to specify some of these settings.
 
 ``` javascript
 var speak = new Allspeak({
