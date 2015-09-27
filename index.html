@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Allspeak.js by Schlipak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Allspeak.js</h1>
+      <h2 class="project-tagline">Front-end translation library</h2>
+      <a href="https://github.com/Schlipak/Allspeak.js" class="btn">View on GitHub</a>
+      <a href="https://github.com/Schlipak/Allspeak.js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Schlipak/Allspeak.js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="allspeakjs" class="anchor" href="#allspeakjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Allspeak.js</h1>
+
+<p>Allspeak is a front-end JavaScript library that translates your websites and web applications quickly and efficiently.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Download or clone the Allspeak.js repository</p>
+
+<pre><code>git clone https://github.com/Schlipak/Allspeak.js.git
+</code></pre>
+
+<p>In the <code>dist</code> folder, you will find the source and minified files. You can either use the jQuery or vanilla version as you like, both have the same functionnalities.</p>
+
+<p>In your HTML document, you should add an attribute to the elements you want to translate. The default attribute is <code>data-key</code>, but it can be configured to your liking.</p>
+
+<p>All the translations are defined in a JSON file called the <em>translation domain</em>, which follows a specific structure. See <a href="#json-file-definition">JSON file definition</a>.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span>&gt;
+&lt;<span class="pl-ent">head</span>&gt;
+    &lt;<span class="pl-ent">title</span>&gt;Hello world&lt;/<span class="pl-ent">title</span>&gt;
+&lt;/<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">body</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">data-key</span>=<span class="pl-s"><span class="pl-pds">"</span>translation.key<span class="pl-pds">"</span></span>&gt;Some default text&lt;/<span class="pl-ent">p</span>&gt;
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>path/to/Allspeak/dist/allspeak.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/javascript<span class="pl-pds">"</span></span>&gt;</span>
+<span class="pl-s1">        (<span class="pl-k">function</span>() {</span>
+<span class="pl-s1">            <span class="pl-k">var</span> speak <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Allspeak</span>();</span>
+<span class="pl-s1">            speak.trans(<span class="pl-s"><span class="pl-pds">'</span>fr<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">        }());</span>
+<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+&lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<p>Along with a valid JSON translation file, the previous example will be translated according to it.</p>
+
+<p><em>Note</em>: When using the jQuery version of Allspeak, wrap your code in <code>$(document).ready()</code>;</p>
+
+<h2>
+<a id="json-file-definition" class="anchor" href="#json-file-definition" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSON file definition</h2>
+
+<p>The JSON translation file structure is pretty simple and straight-forward. It lists all of your translation keys, and to each, associates one or more translation.</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>some.translation.key<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>This is the english traduction<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>fr<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Ceci est la traduction française<span class="pl-pds">"</span></span>
+    },
+    <span class="pl-s"><span class="pl-pds">"</span>another.translation.key<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Yep, same thing here<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>fr<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Ouep, même chose<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
+
+<p>If your file does not follow this structure, Allspeak will either throw a <em>parseError</em> or warn you of a missing key or translation in the console. It's always good to test your translation file with an JSON validator service such as JSONlint.</p>
+
+<h2>
+<a id="translation-domains" class="anchor" href="#translation-domains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Translation domains</h2>
+
+<p>Allspeak uses the concept of translation domains. This allows you to split your translations into multiple files, depending on what part of your website/application it belongs. That way, you can easily maintain your application's translations.</p>
+
+<p>For instance, we can imagine a web application divided in the following trans domains:</p>
+
+<ul>
+<li>Buttons</li>
+<li>Forms</li>
+<li>Menus</li>
+<li>... etc</li>
+</ul>
+
+<p>The corresponding JSON files should be named according to their translation domain, ie:</p>
+
+<ul>
+<li>buttons.json</li>
+<li>forms.json</li>
+<li>menus.json</li>
+</ul>
+
+<h2>
+<a id="settings" class="anchor" href="#settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Settings</h2>
+
+<p>Allspeak comes with settings that let you tune its behaviour to better fit your needs. You can pass an object to the constructor to specify some of these settings.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> speak <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Allspeak</span>({
+    setting<span class="pl-k">:</span> value
+});</pre></div>
+
+<h4>
+<a id="debug" class="anchor" href="#debug" aria-hidden="true"><span class="octicon octicon-link"></span></a>debug</h4>
+
+<p>You can activate the debug mode to make Allspeak verbose and output informations in the console. This should not be used in production.</p>
+
+<ul>
+<li>Setting name: <code>debug</code>
+</li>
+<li>Possible values: <em>Boolean</em> true|false</li>
+<li>Default: false</li>
+</ul>
+
+<h4>
+<a id="path" class="anchor" href="#path" aria-hidden="true"><span class="octicon octicon-link"></span></a>path</h4>
+
+<p>This is the (relative or absolute) path to the directory in which your translation files are located.
+Note that relative paths are relative to the HTML file location and not to the Allspeak.js location.</p>
+
+<ul>
+<li>Setting name: <code>path</code>
+</li>
+<li>Possible values: <em>String</em> Any valid path</li>
+<li>Default: './translations'</li>
+</ul>
+
+<h4>
+<a id="defaultdomain" class="anchor" href="#defaultdomain" aria-hidden="true"><span class="octicon octicon-link"></span></a>defaultDomain</h4>
+
+<p>You can specify a default domain name. This will be used if you do not specify a domain name when translating.</p>
+
+<ul>
+<li>Setting name: <code>defaultDomain</code>
+</li>
+<li>Possible values: <em>String</em> A valid file identifier</li>
+<li>Default: 'messages'</li>
+</ul>
+
+<h4>
+<a id="keyattrname" class="anchor" href="#keyattrname" aria-hidden="true"><span class="octicon octicon-link"></span></a>keyAttrName</h4>
+
+<p>You can specify the key attribute name, which will be used to recognize which HTML elements are to be translated.</p>
+
+<ul>
+<li>Setting name: <code>keyAttrName</code>
+</li>
+<li>Possible values: <em>String</em> A valid attribute name</li>
+<li>Default: <code>data-key</code>
+</li>
+</ul>
+
+<h4>
+<a id="raw" class="anchor" href="#raw" aria-hidden="true"><span class="octicon octicon-link"></span></a>raw</h4>
+
+<p>By default, Allspeak will output escaped strings to avoid any problem when outputtig characters such as <code>&lt; &gt;</code>. You can choose to disable this, to allow Allspeak to output raw HTML code.</p>
+
+<ul>
+<li>Setting name: <code>raw</code>
+</li>
+<li>Possible values: <em>Boolean</em> true|false</li>
+<li>Default: false</li>
+</ul>
+
+<h4>
+<a id="usecache" class="anchor" href="#usecache" aria-hidden="true"><span class="octicon octicon-link"></span></a>useCache</h4>
+
+<p>Allspeak uses a built-in cache system, to speed up the translation process.<br>
+Typically, the JSON files should be loaded only once, then the application will rely either on the cached JSON data, or even store translations into localStorage. This allows to keep translations cached even if you close the website.<br>
+However, any modifications to the translation files will <strong>not</strong> show up in this case (Aside from new yet-to-be-cached translations).<br>
+You can then either disable the caching system, which will load translations directly from the JSON files everytime, or <a href="#clearcache">clear the cache</a> to force Allspeak to refresh it.</p>
+
+<ul>
+<li>Setting name: <code>useCache</code>
+</li>
+<li>Possible values: <em>Boolean</em> true|false</li>
+<li>Default: true</li>
+</ul>
+
+<h2>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<h4>
+<a id="trans" class="anchor" href="#trans" aria-hidden="true"><span class="octicon octicon-link"></span></a>trans</h4>
+
+<div class="highlight highlight-source-js"><pre>Allspeak.trans(args);</pre></div>
+
+<p>Translates the document to the given locale.</p>
+
+<h6>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h6>
+
+<ul>
+<li>args <em>Object|String</em> The arguments for this translation
+
+<ul>
+<li>Required: The locale/language identifier</li>
+</ul>
+</li>
+</ul>
+
+<p>The arguments can be:</p>
+
+<ul>
+<li>
+<em>String</em> The locale identifier</li>
+<li>
+<em>Object</em> The arguments settings
+
+<ul>
+<li>locale: <em>String</em> The locale identifier</li>
+<li>domain: <em>String</em> The translation domain (Optional, Default <code>Allspeak.defaultDomain</code>)</li>
+<li>scope: <em>DOM Element|jQuery Element</em> The scope of the document to translate (Optional, Default <code>&lt;body&gt;</code>)</li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="clearcache" class="anchor" href="#clearcache" aria-hidden="true"><span class="octicon octicon-link"></span></a>clearCache</h4>
+
+<div class="highlight highlight-source-js"><pre>Allspeak.clearCache();</pre></div>
+
+<p>Clear the translation cache, including the cached JSON data. This will force to reload the whole translation data the next time the page is translated.</p>
+
+<h6>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h6>
+
+<p><em>none</em></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Schlipak/Allspeak.js">Allspeak.js</a> is maintained by <a href="https://github.com/Schlipak">Schlipak</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
