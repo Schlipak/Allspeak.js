@@ -5,7 +5,8 @@ a.fork.me {
   position: absolute;
   top: 62.388000000000005px;
   left: -52px;
-  padding: 2px;
+  padding-top: 2px;
+  padding-bottom: 3px;
   width: 250px;
   box-sizing: border-box;
   background-color: #d32f2f;
@@ -16,11 +17,7 @@ a.fork.me {
   border: 1px dashed rgba(255,255,255,0.35);
   outline: 3px solid #d32f2f;
   transform: rotate(-45deg) translate(-2px, 2px);
-  transition: box-shadow 0.2s;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23);
-}
-a.fork.me:hover {
-	box-shadow: 0 10px 10px 0 rgba(0,0,0,.19), 0 6px 3px 0 rgba(0,0,0,.23);
 }
 a.fork.me:before {
   content: 'Fork me on Github';
