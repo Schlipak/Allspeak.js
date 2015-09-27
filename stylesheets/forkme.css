@@ -3,11 +3,9 @@ a.fork.me {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 46px;
-  left: -38px;
-  padding: 2px;
+  top: 45px;
+  left: -39px;
   width: 200px;
-  height: 26px;
   padding-top: 2px;
   padding-bottom: 3px;
   box-sizing: border-box;
