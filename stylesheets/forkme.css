@@ -1,4 +1,4 @@
-.fork.me {
+a.fork.me {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,12 +17,12 @@
   outline: 3px solid #d32f2f;
   transform: rotate(-45deg) translate(-2px, 2px);
 }
-.fork.me:before {
+a.fork.me:before {
   content: 'Fork me on Github';
   color: #fff;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.fork.me:after {
+a.fork.me:after {
   content: '';
   display: block;
   width: 0;
@@ -31,6 +31,6 @@
   transition: width 0.2s;
   will-change: width;
 }
-.fork.me:hover:after {
+a.fork.me:hover:after {
   width: 55%;
 }
