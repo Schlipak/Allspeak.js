@@ -1,0 +1,36 @@
+.fork.me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 62.388000000000005px;
+  left: -52px;
+  padding: 2px;
+  width: 250px;
+  box-sizing: border-box;
+  background-color: #d32f2f;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  transform: rotate(0deg);
+  border: 1px dashed rgba(255,255,255,0.35);
+  outline: 3px solid #d32f2f;
+  transform: rotate(-45deg) translate(-2px, 2px);
+}
+.fork.me:before {
+  content: 'Fork me on Github';
+  color: #fff;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.fork.me:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: rgba(255,255,255,0.75);
+  transition: width 0.2s;
+  will-change: width;
+}
+.fork.me:hover:after {
+  width: 55%;
+}
