@@ -57,7 +57,7 @@ The JSON translation file structure is pretty simple and straight-forward. It li
 }
 ```
 
-If your file does not follow this structure, Allspeak will either throw a *parseError* or warn you of a missing key or translation in the console. It's always good to test your translation file with an JSON validator service such as JSONlint.
+If your file does not follow this structure, Allspeak will either throw a *parseError* or warn you of a missing key or translation in the console. It's always good to test your translation file with a JSON validator service such as JSONlint.
 
 ## Translation domains
 
