@@ -47,7 +47,7 @@ The JSON translation file structure is pretty simple and straight-forward. It li
 ``` json
 {
 	"some.translation.key": {
-		"en": "This is the english traduction",
+		"en": "This is the english translation",
 		"fr": "Ceci est la traduction française"
 	},
 	"another.translation.key": {
