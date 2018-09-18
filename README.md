@@ -1,3 +1,9 @@
+# **THIS REPOSITORY IS ARCHIVED**
+
+This project is out of date, please check [Schlipak/Allspeak](https://github.com/Schlipak/Allspeak) for a newer implementation.
+
+---
+
 Allspeak.js
 ===========
 
